@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { Log } = require('../loggingmiddleware');
 const routes = require('./routes');
