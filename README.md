@@ -52,7 +52,7 @@ A scalable HTTP URL shortener microservice built with Node.js and Express, featu
 
 ### 1. Shortcode Generation Strategy
 - **Approach**: Random alphanumeric generation with collision detection
-- **Length**: 6 characters (62^6 = 56B+ combinations)
+- **Length**: 6 characters
 - **Validation**: Alphanumeric only, 1-10 character limit
 
 ### 2. URL Validation
@@ -77,13 +77,13 @@ A scalable HTTP URL shortener microservice built with Node.js and Express, featu
 ## API Endpoints
 
 ### POST /shorturls
-Creates shortened URL with optional custom shortcode and validity period.
+Creates a shortened URL with an optional custom shortcode and validity period.
 
 ### GET /shorturls/:shortcode
-Returns comprehensive statistics including click analytics.
+Returns comprehensive statistics, including click analytics.
 
 ### GET /:shortcode
-Redirects to original URL and records click analytics.
+Redirects to the  original URL and records click analytics.
 
 ## Scalability Considerations
 
