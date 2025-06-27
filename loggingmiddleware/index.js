@@ -1,3 +1,4 @@
+require('dotenv').config({ path: '../.env' });
 const axios = require('axios');
 
 const LOG_API_URL = 'http://20.244.56.144/evaluation-service/logs';
@@ -27,7 +28,7 @@ async function Log(stack, level, packageName, message) {
   try {
     const response = await axios.post(LOG_API_URL, payload, {
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJzaHJlc2h0aGEuMjJnY2ViZHMwOTRAZ2FsZ290aWFjb2xsZWdlLmVkdSIsImV4cCI6MTc1MTAxNTcyNywiaWF0IjoxNzUxMDE0ODI3LCJpc3MiOiJBZmZvcmQgTWVkaWNhbCBUZWNobm9sb2dpZXMgUHJpdmF0ZSBMaW1pdGVkIiwianRpIjoiM2QyNjY5NGMtYzNiNy00NTljLWJhNzAtYTY5MmIxZTAwODY2IiwibG9jYWxlIjoiZW4tSU4iLCJuYW1lIjoic2hyZXNodGhhIGd1cHRhIiwic3ViIjoiMzQxOGNmMTYtYTc2MS00ZDc0LTk2NDYtN2RhM2M4YmM4YTc5In0sImVtYWlsIjoic2hyZXNodGhhLjIyZ2NlYmRzMDk0QGdhbGdvdGlhY29sbGVnZS5lZHUiLCJuYW1lIjoic2hyZXNodGhhIGd1cHRhIiwicm9sbE5vIjoiMjIwMDk3MTU0MDEwOSIsImFjY2Vzc0NvZGUiOiJNdWFndnEiLCJjbGllbnRJRCI6IjM0MThjZjE2LWE3NjEtNGQ3NC05NjQ2LTdkYTNjOGJjOGE3OSIsImNsaWVudFNlY3JldCI6IlhEZlN4UFNBVlpZeUdyaHcifQ.OG01R9yhDWmZyi1KJPyxVEZwL4kmnqzBuaZIN5YsraY'
+        'Authorization': `Bearer ${process.env.LOG_AUTH_TOKEN}`
       }
     });
     return response.data;
