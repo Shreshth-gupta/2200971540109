@@ -42,7 +42,7 @@ A scalable HTTP URL shortener microservice built with Node.js and Express, featu
 ### Storage: In-Memory Maps
 - **Justification**: Simple implementation for MVP, fast access times
 - **Trade-offs**: Data loss on restart, memory limitations
-- **Production Alternative**: Redis/MongoDB for persistence and scalability
+- **Production Alternative**: PostgreSQL for persistence and scalability
 
 ### Logging: External HTTP Service
 - **Justification**: Centralized logging for monitoring and debugging
@@ -72,7 +72,6 @@ A scalable HTTP URL shortener microservice built with Node.js and Express, featu
 ### 5. Analytics Implementation
 - **Click Tracking**: Timestamp, referrer, location per click
 - **Storage**: Separate Map for click data
-- **Privacy**: Coarse-grained location (placeholder implementation)
 
 ## API Endpoints
 
@@ -94,12 +93,10 @@ Redirects to the  original URL and records click analytics.
 - Basic location services
 
 ### Production Enhancements
-- **Database**: Redis for caching, PostgreSQL for persistence
-- **Caching**: Multi-layer caching strategy
+- **Database**: PostgreSQL for persistence
 - **Load Balancing**: Horizontal scaling with session affinity
 - **Rate Limiting**: Per-IP request throttling
 - **Monitoring**: Health checks, metrics collection
-- **Security**: Input sanitization, HTTPS enforcement
 
 ## Assumptions
 
@@ -127,13 +124,12 @@ Redirects to the  original URL and records click analytics.
 ## Future Improvements
 
 1. **Database Integration**: Persistent storage layer
-2. **Caching Strategy**: Redis for hot data
-3. **Rate Limiting**: Prevent abuse
-4. **Analytics Dashboard**: Real-time statistics
-5. **Custom Domains**: Branded short links
-6. **Bulk Operations**: Batch URL creation
-7. **API Versioning**: Backward compatibility
-8. **Health Monitoring**: Service status endpoints
+2. **Rate Limiting**: Prevent abuse
+3. **Analytics Dashboard**: Real-time statistics
+4. **Custom Domains**: Branded short links
+5. **Bulk Operations**: Batch URL creation
+6. **API Versioning**: Backward compatibility
+7. **Health Monitoring**: Service status endpoints
 
 ## Installation & Usage
 
